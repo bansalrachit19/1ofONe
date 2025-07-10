@@ -92,7 +92,7 @@ export default function Achievements() {
                 target="_blank"
                 className="text-sm text-auroraGreen hover:underline"
               >
-                View Proof ↗
+                View ↗
               </a>
             )}
           </motion.div>
