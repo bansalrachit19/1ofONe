@@ -54,7 +54,7 @@ export default function LeadershipTimeline() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        Leadership Timeline 🧠👑
+        Leadership Timeline
       </motion.h2>
 
       <div className="relative z-10 flex flex-col gap-12 border-l border-white/20 pl-6">

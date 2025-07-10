@@ -19,7 +19,7 @@ export default function Hero() {
       >
         <h1 className="text-5xl md:text-6xl font-extrabold text-starlight leading-tight">
           Hey, I'm{" "}
-          <span className="text-auroraGreen">Rachit Bansal</span> 🚀
+          <span className="text-auroraGreen">Rachit Bansal</span>
         </h1>
 
         <div className="text-xl md:text-2xl text-starlight/80 font-medium h-[60px]">

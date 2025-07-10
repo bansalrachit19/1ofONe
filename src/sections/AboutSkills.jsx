@@ -50,7 +50,7 @@ export default function AboutSkills() {
         >
           <h2 className="text-4xl font-bold text-auroraGreen">About Me</h2>
           <p className="text-starlight/80 leading-relaxed text-justify">
-            I'm a passionate Final Year Computer Engineering undergrad at Thapar Institute (CGPA: 8.69), a MERN stack developer, an AI enthusiast, and a state-ranked badminton player. I'm skilled in Data Structures and Algorithms, and I enjoy solving complex problems with simple, efficient solutions.
+            I'm a passionate Final Year Computer Engineering undergrad at Thapar Institute (CGPA: 8.69), a MERN stack developer, an AI enthusiast. I'm skilled in Data Structures and Algorithms, and I enjoy solving complex problems with simple, efficient solutions.
           </p>
           <p className="text-starlight/70 text-justify">
             I’ve built platforms like MindMend and Uhire, co-invented a patent, and led major events and technical teams — blending innovation, leadership, and real-world impact.

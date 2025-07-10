@@ -43,7 +43,7 @@ export default function Projects() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        Projects That Define Me 💻✨
+        Projects That Define Me
       </motion.h2>
 
       <div className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-2 gap-10">

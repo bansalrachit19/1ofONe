@@ -6,3 +6,7 @@
 body {
   @apply bg-midnight text-starlight font-boom;
 }
+
+html, body {
+  overflow-x: hidden;
+}

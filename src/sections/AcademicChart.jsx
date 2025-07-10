@@ -30,7 +30,7 @@ export default function AcademicChart() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        My Academic Climb 📈
+        My Academic Climb
       </motion.h2>
 
       <div className="z-10 relative w-full max-w-4xl mx-auto bg-white/5 p-6 rounded-2xl shadow-xl border border-white/10">

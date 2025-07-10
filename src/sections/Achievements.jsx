@@ -71,7 +71,7 @@ export default function Achievements() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        Certifications & Achievements 🏆
+        Certifications & Achievements
       </motion.h2>
 
       <div className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">

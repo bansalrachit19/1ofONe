@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const links = [
@@ -39,30 +39,35 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="md:hidden text-xl" onClick={() => setOpen(!open)}>
+        <div className="md:hidden text-xl z-50" onClick={() => setOpen(!open)}>
           {open ? <FaTimes /> : <FaBars />}
         </div>
       </div>
 
-      {open && (
-        <motion.ul
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          className="md:hidden bg-[#0b0c1d] px-6 py-6 space-y-4 border-t border-white/10 text-sm"
-        >
-          {links.map((link, i) => (
-            <li key={i}>
-              <a
-                href={link.href}
-                className="block text-starlight hover:text-auroraGreen"
-                onClick={() => setOpen(false)}
-              >
-                {link.name}
-              </a>
-            </li>
-          ))}
-        </motion.ul>
-      )}
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {open && (
+          <motion.ul
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -20, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden fixed top-0 left-0 w-full h-screen bg-[#0b0c1d]/95 backdrop-blur-lg px-8 py-24 space-y-6 text-starlight text-lg font-medium z-40"
+          >
+            {links.map((link, i) => (
+              <li key={i}>
+                <a
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="block hover:text-auroraGreen transition duration-200"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
