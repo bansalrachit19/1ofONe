@@ -27,7 +27,7 @@ export default function Hero() {
             options={{
               strings: [
                 "MERN Stack Developer",
-                "Inventor & Patent Holder",
+                "Inventor & Published Patent Holder",
                 "Athlete • NDA Ranker • Tech Lead",
                 "Builder of MindMend & Energy 3.0",
                 "Captain Thapar Badminton Team",
