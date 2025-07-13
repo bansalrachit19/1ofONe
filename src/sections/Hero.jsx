@@ -30,7 +30,7 @@ export default function Hero() {
                 "Inventor & Published Patent Holder",
                 "Athlete • NDA Ranker • Tech Lead",
                 "Builder of MindMend & Energy 3.0",
-                "Captain Thapar Badminton Team",
+                "Captain - Thapar Badminton Team",
               ],
               autoStart: true,
               loop: true,
