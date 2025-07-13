@@ -26,7 +26,7 @@ export default function Hero() {
           <Typewriter
             options={{
               strings: [
-                "MERN Stack Wizard",
+                "MERN Stack Developer",
                 "Inventor & Patent Holder",
                 "Athlete • NDA Ranker • Tech Lead",
                 "Builder of MindMend & Energy 3.0",
