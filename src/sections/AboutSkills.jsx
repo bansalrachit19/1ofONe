@@ -62,7 +62,7 @@ export default function AboutSkills() {
             I’m looking for a company where I can keep growing, contribute to something meaningful, and work alongside people who value curiosity, empathy, and clean, effective solutions.
           </p>
           <a
-            href="https://drive.google.com/file/d/17aj2eKYFIQDGnfSoL4awqjnJZ2kVxv_5/view?usp=sharing"
+            href="https://drive.google.com/file/d/1-AgNattulu1t3SFVmAI3omqyR_UdVgC2/view?usp=sharing"
             target="_blank"
             className="inline-block px-6 py-2 mt-4 bg-auroraGreen text-midnight font-semibold rounded-xl hover:scale-105 transition"
           >
