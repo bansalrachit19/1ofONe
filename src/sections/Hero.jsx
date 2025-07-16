@@ -42,7 +42,7 @@ export default function Hero() {
 
         <div className="pt-4 space-x-4">
           <a
-            href="https://drive.google.com/file/d/17aj2eKYFIQDGnfSoL4awqjnJZ2kVxv_5/view?usp=sharing"
+            href="https://drive.google.com/file/d/1-AgNattulu1t3SFVmAI3omqyR_UdVgC2/view?usp=sharing"
             target="_blank"
             className="inline-block px-6 py-3 text-lg font-semibold bg-auroraGreen text-midnight rounded-xl shadow-lg hover:scale-105 transition-transform"
           >
