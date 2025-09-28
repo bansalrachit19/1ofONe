@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
-import heroPic from "../../src/assets/rachit.png";
+import heroPic from "../../src/assets/rachitPhoto.png";
 
 export default function Hero() {
   return (
