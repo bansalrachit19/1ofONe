@@ -29,8 +29,8 @@ const achievements = [
     link: "https://drive.google.com/drive/folders/14XioexRUpz4JHT7a2QeuQXe0qMMq2ODa?usp=sharing",
   },
   {
-    title: "LeetCode 350+ Qs",
-    desc: "Badges in Stacks, LinkedLists, BST, Sorting",
+    title: "LeetCode 450+ Qs",
+    desc: "Awarded 50 days and 100 days badges in 2025 ",
     icon: <SiLeetcode />,
     link: "https://leetcode.com/u/rachit_bansal20/",
   },
