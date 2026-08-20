@@ -148,27 +148,5 @@ export const projectsData = [
     github: "https://github.com/bansalrachit19/Authorization-Backend",
     demo: null,
     badge: "Security Engine"
-  },
-  {
-    id: "media-ingestion-service",
-    title: "Distributed Media Cloud Ingestion Service",
-    subtitle: "Multi-Format Binary Stream Processing & Cloud Storage",
-    category: "Backend & Cloud",
-    tagline: "Scalable file upload service with MIME type verification, cloud transcoding, and metadata indexing.",
-    description: "Built a dedicated file ingestion microservice supporting chunked multi-format video and image uploads. Integrates Cloudinary and S3 for CDN distribution with MongoDB metadata indexing.",
-    architecturePoints: [
-      "Streaming binary upload handlers with strict MIME-type and size validation filters.",
-      "Asynchronous transcoding and thumbnail generation pipeline.",
-      "Indexed MongoDB persistence for instant media query and asset discovery."
-    ],
-    technologies: ["Node.js", "Express.js", "MongoDB", "Cloudinary", "REST APIs"],
-    metrics: [
-      { label: "Formats", value: "Video & Image Pipelines" },
-      { label: "Storage", value: "Cloudinary + S3" }
-    ],
-    featured: false,
-    github: "https://github.com/bansalrachit19/media-uploader-backend",
-    demo: null,
-    badge: "Cloud Ingestion"
   }
 ];
