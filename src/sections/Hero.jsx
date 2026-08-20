@@ -1,77 +1,171 @@
+import React from "react";
 import { motion } from "framer-motion";
-import Typewriter from "typewriter-effect";
-import heroPic from "../../src/assets/RachitPhoto.png";
+import { 
+  ArrowRight, 
+  FileText, 
+  Github, 
+  Linkedin, 
+  Copy, 
+  Sparkles, 
+  Layers, 
+  ShieldCheck, 
+  Activity, 
+  Terminal as TerminalIcon,
+  CheckCircle2
+} from "lucide-react";
+import SystemCanvas from "../components/SystemCanvas";
+import { useToast } from "../components/Toast";
+import confetti from "canvas-confetti";
+import rachitPhoto from "../assets/RachitPhoto.png";
 
-export default function Hero() {
+export default function Hero({ onOpenCommandPalette }) {
+  const { addToast } = useToast();
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("bansalrachit311@gmail.com");
+    addToast("Email copied: bansalrachit311@gmail.com", "success");
+    confetti({ particleCount: 30, spread: 60, origin: { y: 0.8 } });
+  };
+
+  const statHighlights = [
+    { label: "Current Role", value: "Associate SE @ Birla Pivot", sub: "Aditya Birla Group" },
+    { label: "Cloud & IAC", value: "AWS & Terraform", sub: "Production Infrastructure" },
+    { label: "Observability", value: "OpenSearch & Thanos", sub: "Telemetry Pipelines" },
+    { label: "Algorithms", value: "450+ LeetCode Solved", sub: "Consistent Problem Solver" }
+  ];
+
   return (
-    <section
-      id="hero"
-      className="h-screen w-full flex flex-col-reverse lg:flex-row items-center justify-center px-6 md:px-20 relative overflow-hidden bg-gradient-to-tr from-[#0f172a] via-[#141742] to-[#0f172a]"
-    >
-      <div className="absolute top-[-150px] left-[-100px] w-[700px] h-[700px] bg-gradient-to-br from-auroraGreen via-nebulaPink to-magenta blur-[150px] rounded-full opacity-20 animate-pulse" />
-      <div className="absolute bottom-[-150px] right-[-100px] w-[600px] h-[600px] bg-gradient-to-tr from-electricTeal to-indigo-400 blur-[120px] rounded-full opacity-20 animate-ping" />
+    <section id="hero" className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
+      {/* Background Radial Glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-cyan/10 rounded-full blur-[140px] pointer-events-none" />
 
+      {/* Top Banner / Status Pill */}
       <motion.div
-        className="z-10 max-w-xl text-center lg:text-left space-y-6"
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.5 }}
+        className="flex flex-wrap items-center justify-center gap-3 mb-6"
       >
-        <h1 className="text-5xl md:text-6xl font-extrabold text-starlight leading-tight">
-          Hey, I'm{" "}
-          <span className="text-auroraGreen">Rachit Bansal</span>
-        </h1>
-
-        <div className="text-xl md:text-2xl text-starlight/80 font-medium h-[60px]">
-          <Typewriter
-            options={{
-              strings: [
-                "MERN Stack Developer",
-                "Inventor & Published Patent Holder",
-                "Athlete • NDA Ranker • Tech Lead",
-                "Builder of MindMend & Energy 3.0",
-                "Captain - Thapar Badminton Team",
-              ],
-              autoStart: true,
-              loop: true,
-              delay: 50,
-              deleteSpeed: 20,
-            }}
-          />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-slate-300 shadow-inner-light backdrop-blur-md">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-emerald opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-emerald"></span>
+          </span>
+          <span>Birla Pivot (Aditya Birla Group) • Bangalore</span>
         </div>
 
-        <div className="pt-4 space-x-4">
+        <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-xs font-mono text-accent-cyan">
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>Intern → Full-Time Associate Software Engineer</span>
+        </div>
+      </motion.div>
+
+      {/* Main Headline & Supporting Statement */}
+      <div className="text-center max-w-4xl mx-auto mb-10">
+        <motion.h1
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-slate-100 tracking-tight leading-[1.1]"
+        >
+          Architecting Resilient <br className="hidden sm:inline" />
+          <span className="bg-gradient-to-r from-accent-cyan via-sky-300 to-accent-indigo bg-clip-text text-transparent">
+            Backend Systems & Cloud Infra
+          </span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-6 text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed font-sans"
+        >
+          I am <span className="text-slate-100 font-semibold">Rachit Bansal</span>, an Associate Software Engineer at <span className="text-slate-100 font-semibold">Birla Pivot (Aditya Birla Group)</span>. I specialize in designing scalable backend microservices, declarative AWS infrastructure with Terraform, distributed observability pipelines (OpenSearch, Prometheus, Thanos), and event streaming architectures.
+        </motion.p>
+
+        {/* Action CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-8 flex flex-wrap items-center justify-center gap-3"
+        >
+          <a
+            href="#projects"
+            className="flex items-center gap-2 px-6 py-3 rounded-xl bg-accent-cyan text-obsidian-950 font-semibold text-sm hover:bg-sky-300 transition-all shadow-glow-cyan font-sans"
+          >
+            <span>Explore Engineering Projects</span>
+            <ArrowRight className="w-4 h-4" />
+          </a>
+
           <a
             href="https://drive.google.com/file/d/1HdkCGQE8YnFq3d3ObuGXd4IXqUNQFaHO/view?usp=sharing"
             target="_blank"
-            className="inline-block px-6 py-3 text-lg font-semibold bg-auroraGreen text-midnight rounded-xl shadow-lg hover:scale-105 transition-transform"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 font-medium text-sm transition-all"
           >
-            View Resume
+            <FileText className="w-4 h-4 text-accent-cyan" />
+            <span>View Resume</span>
           </a>
-          <a
-            href="#projects"
-            className="inline-block px-6 py-3 text-lg font-semibold border border-auroraGreen text-auroraGreen rounded-xl hover:bg-auroraGreen hover:text-midnight transition"
+
+          <button
+            onClick={handleCopyEmail}
+            className="flex items-center gap-2 px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 hover:text-slate-100 font-medium text-sm transition-all font-mono"
+            aria-label="Copy email address"
           >
-            My Projects
+            <Copy className="w-4 h-4 text-accent-emerald" />
+            <span className="hidden sm:inline">bansalrachit311@gmail.com</span>
+            <span className="sm:hidden">Copy Email</span>
+          </button>
+        </motion.div>
+
+        {/* Social / Developer Links */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-6 flex items-center justify-center gap-6 text-sm text-slate-400 font-mono"
+        >
+          <a href="https://github.com/bansalrachit19" target="_blank" rel="noopener noreferrer" className="hover:text-accent-cyan flex items-center gap-1.5 transition-colors">
+            <Github className="w-4 h-4" /> GitHub
           </a>
-        </div>
+          <span>•</span>
+          <a href="https://www.linkedin.com/in/rachit-bansal-03961928b/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-cyan flex items-center gap-1.5 transition-colors">
+            <Linkedin className="w-4 h-4" /> LinkedIn
+          </a>
+          <span>•</span>
+          <a href="https://leetcode.com/u/rachit_bansal20/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-cyan flex items-center gap-1.5 transition-colors">
+            <TerminalIcon className="w-4 h-4" /> LeetCode (450+)
+          </a>
+        </motion.div>
+      </div>
+
+      {/* Interactive System Canvas Visualizer */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.98 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="mt-4"
+      >
+        <SystemCanvas />
       </motion.div>
 
-      <motion.div
-        className="z-10 w-[270px] md:w-[400px] relative mx-auto mb-10 lg:mb-0"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2 }}
-      >
-        <div className="   shadow-2xl hover:scale-105 transition-transform duration-500">
-          <img
-            src={heroPic}
-            alt="Rachit Bansal"
-            className="rounded-3xl w-full object-cover border-4 border-auroraGreen/20"
-          />
-        </div>
-        <div className="absolute -bottom-8 -right-6 w-24 h-24 rounded-full bg-gradient-to-br from-auroraGreen to-nebulaPink opacity-30 blur-2xl animate-pulse" />
-      </motion.div>
+      {/* Engineering Stats Grid */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+        {statHighlights.map((stat, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
+            className="p-4 rounded-xl glass-panel border border-white/5 bg-obsidian-900/60 flex flex-col justify-between"
+          >
+            <span className="text-xs font-mono text-slate-400 mb-1">{stat.label}</span>
+            <span className="text-sm sm:text-base font-bold text-slate-100">{stat.value}</span>
+            <span className="text-xs font-mono text-accent-cyan mt-1">{stat.sub}</span>
+          </motion.div>
+        ))}
+      </div>
     </section>
   );
 }

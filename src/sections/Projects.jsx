@@ -1,94 +1,85 @@
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-
-const projects = [
-  {
-    title: "MindMend",
-    desc: "A mental wellness platform featuring bookings with therapists, mood tracker, real-time video therapy, AI mood insights, community, and self-help tools.",
-    tags: ["MERN", "Socket.IO", "JWT", "webRTC", "AI"],
-    github: "https://github.com/bansalrachit19/MINDMEND-1",
-    demo: "https://mindmend-1.vercel.app/",
-  },
-  {
-    title: "Uhire (In Progress)",
-    desc: "AI-driven interview prep platform with smart resume analysis, Coursera-based learning path suggestions, and real-time mock interviews.",
-    tags: ["FastAPI", "MERN", "AI", "ML", "NLP"],
-    github: "https://github.com/Anvit2512/hiring",
-    demo: "",
-  },
-  {
-    title: "Energy 3.0",
-    desc: "Smart building solution using OpenCV, IoT, and automation to reduce power consumption at Thapar University.",
-    tags: ["Node.js", "OpenCV", "IoT", "MongoDB"],
-    github: "",
-    demo: "https://docs.google.com/document/d/1wq4AtHJFZdLfaEdPd6a31JZFDUnuXG67A2uaKkWemXg/edit?tab=t.0",
-  },
-  {
-    title: "StudyNotion",
-    desc: "A full-stack learning platform enabling course creation, purchases, media uploads, and payment integration.",
-    tags: ["ReactJS", "Node.js", "MongoDB", "Tailwind", "Cloudinary"],
-    github: "https://github.com/bansalrachit19/Learn_With_StudyNotion",
-    demo: "https://learn-with-study-notion-frontend.vercel.app/",
-  },
-];
+import { Code2, Sparkles, Filter, Layers, Github } from "lucide-react";
+import { projectsData } from "../data/projectsData";
+import ProjectCard from "../components/ProjectCard";
 
 export default function Projects() {
+  const [filter, setFilter] = useState("all");
+
+  const categories = [
+    { id: "all", label: "All Engineering Projects" },
+    { id: "Distributed Systems & Cloud", label: "Distributed Systems & Cloud" },
+    { id: "Full Stack & WebRTC", label: "Full Stack & WebRTC" },
+    { id: "Full Stack & Payments", label: "EdTech & Payments" },
+    { id: "IoT & Systems", label: "IoT & Patent Systems" },
+    { id: "Backend & Security", label: "Backend & Security" },
+  ];
+
+  const filteredProjects = filter === "all"
+    ? projectsData
+    : projectsData.filter((p) => p.category === filter);
+
   return (
-    <section id = "projects" className="min-h-screen py-20 px-6 md:px-16 bg-gradient-to-bl from-midnight via-[#0a0a1f] to-midnight text-starlight relative">
-      <div className="absolute -top-10 right-10 w-[500px] h-[500px] bg-gradient-to-br from-nebulaPink to-electricTeal opacity-20 blur-3xl rounded-full z-0" />
+    <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
+      {/* Background Radial Glow */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-cyan/5 rounded-full blur-3xl pointer-events-none" />
 
-      <motion.h2
-        className="text-4xl font-bold text-center text-auroraGreen mb-12 z-10 relative"
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        Projects That Define Me
-      </motion.h2>
+      {/* Section Header */}
+      <div className="max-w-3xl mb-12">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-xs font-mono text-accent-cyan mb-3">
+          <Code2 className="w-3.5 h-3.5" />
+          <span>Featured Engineering Case Studies</span>
+        </div>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-100 tracking-tight">
+          Production Systems & <br />
+          <span className="bg-gradient-to-r from-accent-cyan via-sky-300 to-accent-indigo bg-clip-text text-transparent">
+            Architectural Implementations
+          </span>
+        </h2>
+        <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+          Deep technical case studies covering distributed telemetry architectures, real-time WebRTC communications, payment webhooks, patent-filed IoT load optimizers, and cryptographic authentication engines.
+        </p>
+      </div>
 
-      <div className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-2 gap-10">
-        {projects.map((proj, idx) => (
-          <motion.div
-            key={idx}
-            className="bg-white/10 backdrop-blur-glass p-6 rounded-2xl shadow-glass hover:scale-[1.03] transition-all duration-300 border border-white/10"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: idx * 0.2, duration: 0.8 }}
+      {/* Category Filter Buttons */}
+      <div className="flex flex-wrap gap-2 mb-10">
+        {categories.map((cat) => (
+          <button
+            key={cat.id}
+            onClick={() => setFilter(cat.id)}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all ${
+              filter === cat.id
+                ? "bg-accent-cyan text-obsidian-950 font-bold shadow-glow-cyan"
+                : "bg-white/5 border border-white/10 text-slate-400 hover:text-slate-200 hover:bg-white/10"
+            }`}
           >
-            <h3 className="text-2xl font-bold text-nebulaPink mb-2">{proj.title}</h3>
-            <p className="text-starlight/80 mb-4">{proj.desc}</p>
-            <div className="flex flex-wrap gap-2 mb-4">
-              {proj.tags.map((tag, i) => (
-                <span
-                  key={i}
-                  className="text-xs px-2 py-1 bg-white/10 text-white rounded-full"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <div className="flex gap-4 mt-4">
-              {proj.github && (
-                <a
-                  href={proj.github}
-                  target="_blank"
-                  className="text-starlight hover:text-auroraGreen transition"
-                >
-                  <FaGithub size={22} />
-                </a>
-              )}
-              {proj.demo && (
-                <a
-                  href={proj.demo}
-                  target="_blank"
-                  className="text-starlight hover:text-auroraGreen transition"
-                >
-                  <FaExternalLinkAlt size={20} />
-                </a>
-              )}
-            </div>
-          </motion.div>
+            {cat.label}
+          </button>
         ))}
+      </div>
+
+      {/* Projects Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {filteredProjects.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
+        ))}
+      </div>
+
+      {/* Bottom GitHub Callout */}
+      <div className="mt-12 p-6 rounded-2xl glass-panel border border-white/10 bg-obsidian-900/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-3 text-sm text-slate-300">
+          <Github className="w-5 h-5 text-accent-cyan" />
+          <span>Looking to explore more repositories, utilities, and experimental systems?</span>
+        </div>
+        <a
+          href="https://github.com/bansalrachit19?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono text-slate-200 hover:text-accent-cyan transition-all shrink-0"
+        >
+          View All GitHub Repositories ↗
+        </a>
       </div>
     </section>
   );
