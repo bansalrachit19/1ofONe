@@ -1,27 +1,83 @@
 export const projectsData = [
   {
-    id: "observability-cloud-infra",
-    title: "Distributed Observability & Resilient Cloud Infrastructure",
-    subtitle: "Enterprise Platform Engineering & Telemetry Architecture",
-    category: "Distributed Systems & Cloud",
-    tagline: "High-scale logging, metrics aggregation, rate limiting, and automated infrastructure provisioning.",
-    description: "Architected and maintained distributed observability and cloud automation infrastructure. Integrated OpenSearch, Logstash, and Filebeat for unified application logging, alongside Prometheus and Thanos for distributed multi-cluster metric aggregation. Designed OpenResty/NGINX API gateway reverse proxying with dynamic rate limiting and automated health telemetry.",
-    architecturePoints: [
-      "Terraform-driven AWS infrastructure across IAM, KMS, ACM, CloudFront, ECR, SQS, DynamoDB, Secrets Manager, and EC2.",
-      "Multi-node OpenSearch logging pipeline ingesting Filebeat/Logstash log streams with structured parsing and query indexing.",
-      "Prometheus & Thanos metrics federation providing long-term storage and sub-second dashboard visualization.",
-      "OpenResty reverse proxy gateway enforcing token validation, request routing, and client-tier rate limiting."
+    id: "frontend-observability-pipeline",
+    title: "In-House Frontend Observability & Browser Telemetry Pipeline",
+    subtitle: "Custom Browser Telemetry, Web Vitals & Runtime Error Ingestion",
+    category: "Observability & Telemetry",
+    tagline: "Custom in-house telemetry architecture for collecting, processing, and indexing real-time browser performance and errors.",
+    description: "Architected and deployed an end-to-end in-house frontend observability pipeline designed specifically for our platform environment. Captures real-time Web Vitals (LCP, CLS, INP, FCP, TTFB), JavaScript runtime exceptions, failed API network requests, and user session telemetry via Faro SDK and OpenTelemetry, routing through Alloy and Logstash to OpenSearch for centralized querying and real-time dashboard visualization.",
+    pipelineFlow: [
+      { step: "1. Browser Client", desc: "User Interaction & Page Lifecycle" },
+      { step: "2. Faro SDK", desc: "Telemetry Instrumentation (Vitals, Errors, Traces)" },
+      { step: "3. Alloy", desc: "Telemetry Collector & Buffer Forwarder" },
+      { step: "4. OTel Collector", desc: "Standardized OpenTelemetry Processing" },
+      { step: "5. Logstash", desc: "Log Transformation & Schema Mapping" },
+      { step: "6. OpenSearch", desc: "Indexing, Search & Real-Time Dashboards" }
     ],
-    technologies: ["AWS", "Terraform", "OpenSearch", "Prometheus", "Thanos", "Kafka", "OpenResty", "Docker", "Node.js"],
+    architecturePoints: [
+      "Custom in-house architecture designed for our platform: Browser → Faro SDK → Alloy → OpenTelemetry Collector → Logstash → OpenSearch.",
+      "Instruments Core Web Vitals (LCP, CLS, INP, FCP, TTFB) to track frontend performance and identify latency regressions.",
+      "Captures frontend health signals including unhandled JavaScript exceptions, network API failures, and console error events.",
+      "Centralizes browser telemetry in OpenSearch Dashboards, enabling engineers to correlate frontend issues directly with backend service logs."
+    ],
+    technologies: ["Faro SDK", "Alloy", "OpenTelemetry", "Logstash", "OpenSearch", "OpenSearch Dashboards", "JavaScript"],
     metrics: [
-      { label: "Architecture", value: "Multi-Tier Cloud" },
-      { label: "Telemetry", value: "Distributed Logs & Metrics" },
+      { label: "Architecture", value: "Faro → Alloy → OTel → OpenSearch" },
+      { label: "Telemetry", value: "Web Vitals + Runtime Errors" },
+      { label: "Processing", value: "Real-Time Ingestion" }
+    ],
+    featured: true,
+    github: "https://github.com/bansalrachit19",
+    demo: null,
+    badge: "In-House Architecture"
+  },
+  {
+    id: "api-gateway-automation",
+    title: "Automated API Gateway API Exposure & GitOps Workflow",
+    subtitle: "Infrastructure-as-Code Automation & Review Pipeline",
+    category: "Cloud & Automation",
+    tagline: "End-to-end automation of the API exposure lifecycle via Terraform, automated PRs, and Microsoft Teams review notifications.",
+    description: "Designed an automated developer-productivity and infrastructure-as-code workflow that streamlines exposing new microservice APIs through AWS API Gateway. Replaced manual configurations with an automated pipeline that parses developer requests, updates Terraform definitions, generates automated Pull Requests with plan outputs, and broadcasts notifications over Microsoft Teams for team review and deployment.",
+    architecturePoints: [
+      "Automated multi-stage workflow: API exposure request → Terraform config generation → Automated Pull Request → Terraform plan generation → Microsoft Teams notification.",
+      "Standardizes API Gateway routing, path definitions, CORS policies, and security parameters through declarative Terraform IAC.",
+      "Integrates Microsoft Teams webhooks to provide immediate visibility of Terraform plan outputs and required approval steps.",
+      "Reduces manual infrastructure configuration effort and eliminates configuration drift across development, staging, and production environments."
+    ],
+    technologies: ["AWS API Gateway", "Terraform", "Jenkins", "Bitbucket", "Microsoft Teams Webhooks", "GitOps"],
+    metrics: [
+      { label: "Workflow", value: "Automated PR & Plan Generation" },
+      { label: "Notifications", value: "Microsoft Teams Webhooks" },
       { label: "Infrastructure", value: "100% Terraform IAC" }
     ],
     featured: true,
     github: "https://github.com/bansalrachit19",
     demo: null,
-    badge: "Production Architecture"
+    badge: "Production Automation"
+  },
+  {
+    id: "rate-limiting-engine",
+    title: "Configurable Endpoint-Level API Rate Limiting & Abuse Prevention",
+    subtitle: "Custom Multi-Tier Traffic Control & Gateway Security",
+    category: "Backend & Systems",
+    tagline: "Fine-grained rate-limiting architecture with endpoint-specific minute and hourly thresholds to protect backend availability.",
+    description: "Engineered a custom rate-limiting architecture that allows individual API endpoints to maintain their own configurable per-minute and per-hour traffic thresholds. Enforces request counting and HTTP 429 rejection at the gateway tier, automatically shielding backend services from abusive request bursts and malicious traffic patterns while feeding rate-limit observability into logging pipelines.",
+    architecturePoints: [
+      "Endpoint-specific policy configuration allowing distinct per-minute and per-hour rate thresholds tailored to each API's compute intensity.",
+      "High-performance request counting and policy enforcement integrated into reverse proxy gateway routing (OpenResty / NGINX / Redis).",
+      "Immediate HTTP 429 Too Many Requests enforcement to drop abusive spikes before reaching downstream microservices.",
+      "Comprehensive rate-limit observability and audit logging to monitor blocked requests, track traffic patterns, and triage incidents."
+    ],
+    technologies: ["OpenResty", "NGINX", "Redis", "Lua", "OpenSearch", "HTTP 429", "REST APIs"],
+    metrics: [
+      { label: "Policies", value: "Endpoint-Specific Minute & Hourly" },
+      { label: "Enforcement", value: "Gateway Tier HTTP 429" },
+      { label: "Protection", value: "Abuse & Spike Mitigation" }
+    ],
+    featured: true,
+    github: "https://github.com/bansalrachit19",
+    demo: null,
+    badge: "Gateway Security"
   },
   {
     id: "mindmend",
@@ -45,30 +101,6 @@ export const projectsData = [
     featured: true,
     github: "https://github.com/bansalrachit19/MINDMEND-1",
     demo: "https://mindmend-1.vercel.app/",
-    badge: "Live Product"
-  },
-  {
-    id: "studynotion",
-    title: "StudyNotion — EdTech Platform & Media Streaming Architecture",
-    subtitle: "High-Performance Course Marketplace & Payment Processing",
-    category: "Full Stack & Payments",
-    tagline: "Full-stack learning platform with Razorpay checkout webhooks, media pipeline, and analytics.",
-    description: "Designed and built an end-to-end educational marketplace enabling instructors to publish multimedia courses and students to enroll seamlessly. Integrated Razorpay payment webhooks, OTP-based email verification, and Cloudinary media processing pipelines.",
-    architecturePoints: [
-      "Secure webhook-verified Razorpay payment gateway handling course purchases with transactional consistency.",
-      "Cloudinary media ingestion pipeline for automated video/image optimization and asset delivery.",
-      "Multi-level authorization hierarchy with bcrypt password encryption and one-time password (OTP) verification.",
-      "Interactive course completion statistics and revenue charts with ChartJS."
-    ],
-    technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Razorpay API", "Cloudinary", "Tailwind CSS"],
-    metrics: [
-      { label: "Payments", value: "Razorpay Webhooks" },
-      { label: "Media Pipeline", value: "Cloudinary CDN" },
-      { label: "Auth Flow", value: "OTP + JWT + Bcrypt" }
-    ],
-    featured: true,
-    github: "https://github.com/bansalrachit19/Learn_With_StudyNotion",
-    demo: "https://learn-with-study-notion-frontend.vercel.app/",
     badge: "Live Product"
   },
   {

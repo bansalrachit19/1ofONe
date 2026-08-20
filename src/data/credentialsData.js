@@ -13,7 +13,7 @@ export const certificationsData = [
     title: "Microsoft Certified: Azure Fundamentals",
     issuer: "Microsoft",
     code: "AZ-900",
-    description: "Cloud concepts, Azure architecture, security governance, and compliance fundamentals.",
+    description: "Cloud architecture, Azure service components, security governance, and compliance fundamentals.",
     link: "https://drive.google.com/file/d/18sku_awCiyo5wU6R7KfwffgUlH97nU7F/view?usp=sharing",
     badge: "Cloud Foundation"
   },
@@ -44,24 +44,29 @@ export const certificationsData = [
 ];
 
 export const academicData = {
-  degree: "Bachelor of Engineering in Computer Engineering",
-  institution: "Thapar Institute of Engineering & Technology",
-  cgpa: "8.69 / 10.0",
-  period: "2021 – 2025",
+  degree: "Bachelor of Technology in Computer Engineering",
+  institution: "Thapar Institute of Engineering and Technology",
+  cgpa: "8.80 / 10.0",
+  finalCgpa: "8.80",
+  perfectSgpa: "10.00",
+  period: "2022 – 2026",
+  graduationYear: "2026",
   semesters: [
     { sem: "Sem 1", sgpa: 8.13, cgpa: 8.13 },
     { sem: "Sem 2", sgpa: 8.21, cgpa: 8.17 },
     { sem: "Sem 3", sgpa: 8.80, cgpa: 8.38 },
     { sem: "Sem 4", sgpa: 8.64, cgpa: 8.45 },
     { sem: "Sem 5", sgpa: 9.26, cgpa: 8.61 },
-    { sem: "Sem 6", sgpa: 9.08, cgpa: 8.69 }
+    { sem: "Sem 6", sgpa: 9.08, cgpa: 8.69 },
+    { sem: "Sem 7", sgpa: 9.38, cgpa: 8.78 },
+    { sem: "Sem 8", sgpa: 10.00, cgpa: 8.80 }
   ]
 };
 
 export const leadershipData = [
   {
     title: "Captain, University Badminton Team",
-    organization: "Thapar Institute of Engineering & Technology",
+    organization: "Thapar Institute of Engineering and Technology",
     period: "Jan 2024 – Present",
     achievements: [
       "Led team to Gold at NIT Kurukshetra & PEC Chandigarh's INTERTECH.",

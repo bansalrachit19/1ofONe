@@ -4,28 +4,33 @@ export const experienceData = [
     company: "Birla Pivot",
     parentCompany: "Aditya Birla Group",
     location: "Bangalore, India",
-    period: "Present",
+    period: "2026 – Present",
     type: "Full-Time",
     current: true,
     highlight: "Promoted from Software Engineering Intern to Full-Time Associate Software Engineer",
-    description: "Engineering resilient backend microservices, high-throughput API gateway routing, and distributed observability pipelines for enterprise scale operations.",
+    description: "Contributing across the production lifecycle — backend platform engineering, AWS cloud infrastructure, Kubernetes & Helm orchestration, API exposure automation, configurable rate limiting, in-house frontend observability, and operational automation.",
     keyDeliverables: [
-      "Architect and maintain distributed logging, metrics collection, and alerting architectures using OpenSearch, Prometheus, Thanos, and OpenSearch Dashboards.",
-      "Design and deploy high-performance API Gateway routing and dynamic rate-limiting policies leveraging OpenResty / NGINX and Node.js microservices.",
-      "Implement automated system health checks, synthetic monitors, and real-time reliability telemetry to preemptively mitigate production incidents.",
-      "Collaborate on event-driven architectures with Apache Kafka / AWS MSK for decoupled, high-volume event ingestion and processing."
+      "Designed and implemented configurable API rate limiting with endpoint-specific minute and hourly policies, enabling fine-grained traffic control and automatically blocking abusive request bursts and malicious traffic patterns with HTTP 429 enforcement before impacting backend services.",
+      "Engineered an automated API Gateway exposure workflow using Terraform IAC — automatically generating configuration changes from developer requests, opening Pull Requests, creating Terraform plans, and routing notifications over Microsoft Teams for team review and deployment.",
+      "Built a custom in-house frontend observability pipeline (Browser → Faro SDK → Alloy → OpenTelemetry Collector → Logstash → OpenSearch) capturing real-time Web Vitals (LCP, CLS, INP, FCP, TTFB), JavaScript errors, API failures, and session telemetry.",
+      "Managed containerized service deployments and orchestration using Docker, Kubernetes (K8s), and Helm charts with Prometheus monitoring and OpenSearch Dashboards.",
+      "Automated repetitive operational workflows across CI/CD, service health checks, logging pipelines, and cloud infrastructure to standardize deployments and enhance reliability."
     ],
     technologies: [
-      "AWS",
+      "AWS (API Gateway, ACM, Load Balancers, Cognito, Aurora and RDS, MSK)",
       "Terraform",
-      "OpenSearch",
-      "Prometheus",
-      "Thanos",
-      "Kafka",
+      "Kubernetes",
+      "Helm",
       "OpenResty",
-      "Node.js",
-      "Docker",
-      "Jenkins"
+      "Faro SDK",
+      "Alloy",
+      "OpenTelemetry",
+      "OpenSearch",
+      "Logstash",
+      "Prometheus",
+      "Kafka / MSK",
+      "Redis",
+      "Docker"
     ]
   },
   {
@@ -33,19 +38,19 @@ export const experienceData = [
     company: "Birla Pivot",
     parentCompany: "Aditya Birla Group",
     location: "Bangalore, India",
-    period: "6 Months",
+    period: "2026 (6 Months)",
     type: "Internship",
     current: false,
-    highlight: "Engineered core platform automation, cloud infrastructure, and CI/CD pipelines",
-    description: "Drove cloud infrastructure automation and DevOps observability to accelerate development lifecycles and harden cloud security posture.",
+    highlight: "6-month Bangalore engineering internship with full conversion to Associate Software Engineer",
+    description: "Built cloud infrastructure automation, CI/CD pipelines, centralized logging, and environment provisioning to support production engineering workflows.",
     keyDeliverables: [
-      "Provisioned and managed scalable AWS infrastructure using Terraform IAC across S3, IAM, KMS, ACM, CloudFront, ECR, SQS, DynamoDB, Secrets Manager, and EC2 instances.",
-      "Built and optimized automated CI/CD deployment pipelines utilizing Jenkins and Bitbucket, streamlining automated testing and artifact promotion.",
-      "Configured distributed logging pipelines with Filebeat, Logstash, and OpenSearch to index and analyze server-side application logs in real-time.",
-      "Implemented secure API authentication layers, cryptographic key rotations, and environment isolation across development and staging tiers."
+      "Provisioned and managed scalable AWS cloud resources using Terraform Infrastructure-as-Code across IAM, KMS, ACM, CloudFront, ECR, SQS, DynamoDB, and Aurora/RDS.",
+      "Constructed and optimized automated CI/CD pipelines in Jenkins and Bitbucket to streamline build, test execution, and deployment promotion.",
+      "Configured distributed logging pipelines with Filebeat, Logstash, and OpenSearch to index and analyze server-side application logs for troubleshooting.",
+      "Assisted in configuring API routing, authentication layers, security group rules, and TLS certificates across staging and production environments."
     ],
     technologies: [
-      "AWS (IAM, KMS, S3, SQS)",
+      "AWS (API Gateway, ACM, Load Balancers, Cognito, Aurora and RDS, MSK)",
       "Terraform",
       "Jenkins",
       "Bitbucket",
@@ -53,7 +58,7 @@ export const experienceData = [
       "Filebeat",
       "OpenSearch",
       "Linux",
-      "Bash"
+      "Docker"
     ]
   }
 ];

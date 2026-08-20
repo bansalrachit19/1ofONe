@@ -3,9 +3,10 @@
 [![Production](https://img.shields.io/badge/Production-Live-emerald?style=flat-square)](https://rachitportfolio.vercel.app/)
 [![Role](https://img.shields.io/badge/Role-Associate%20Software%20Engineer-sky?style=flat-square)](https://www.linkedin.com/in/rachit-bansal-03961928b/)
 [![Company](https://img.shields.io/badge/Company-Birla%20Pivot%20(Aditya%20Birla%20Group)-indigo?style=flat-square)](https://www.birlapivot.com/)
+[![Academics](https://img.shields.io/badge/Thapar%20B.Tech-8.80%20CGPA-blue?style=flat-square)](https://www.thapar.edu/)
 [![License](https://img.shields.io/badge/License-MIT-slate?style=flat-square)](LICENSE)
 
-A world-class personal developer portfolio showcasing **Rachit Bansal's** career progression from **Software Engineering Intern → Associate Software Engineer at Birla Pivot (Aditya Birla Group)**, core focus in **Backend Systems, Cloud & Infrastructure (AWS/Terraform), Distributed Observability (OpenSearch, Prometheus, Thanos, Kafka, OpenResty/NGINX)**, and full-stack product engineering.
+A world-class personal developer portfolio showcasing **Rachit Bansal's** career progression from **Software Engineering Intern → Associate Software Engineer at Birla Pivot (Aditya Birla Group)**, core focus in **Backend Systems, Cloud & Infrastructure (AWS/Terraform), Kubernetes & Helm, In-House Frontend Observability (Faro SDK, Alloy, OpenTelemetry, Logstash, OpenSearch), API Gateway Automation, and Configurable Rate Limiting**.
 
 ---
 
@@ -14,9 +15,16 @@ A world-class personal developer portfolio showcasing **Rachit Bansal's** career
 - **Career Progression**: Transparent, impactful narrative detailing transition from Intern to Full-Time Associate Software Engineer at Birla Pivot (Aditya Birla Group).
 - **Interactive Distributed Systems Simulator**: Live telemetry visualizer displaying real-time traffic flow across API Gateways, Microservice Clusters, Kafka Brokers, Datastores, and Observability Pipelines.
 - **Global Command Palette (`⌘K / Ctrl+K`)**: Instant keyboard navigation, quick section jumps, direct profile links, and one-click email copy.
-- **Interactive Engineer Terminal**: Embedded bash-like interactive CLI shell supporting commands like `help`, `about`, `experience`, `skills`, `projects`, `patent`, and `contact`.
-- **Architectural Case Studies**: Detailed engineering breakdowns with problem, solution, system decisions, metrics, and source links (MindMend WebRTC Telehealth, StudyNotion EdTech, Smart Energy 3.0 Patent, Enterprise Auth, Media Services).
-- **Patents & Credentials**: Highlighting Patent Application `IN202511042404`, Microsoft Azure Certifications, Xebia MERN & QA, and 450+ LeetCode problem-solving milestone.
+- **Interactive Engineer Terminal**: Embedded bash-like interactive CLI shell supporting commands like `help`, `about`, `experience`, `skills`, `projects`, `patent`, `academics`, and `contact`.
+- **Architectural Case Studies**: Detailed engineering breakdowns with problem, solution, system decisions, metrics, and source links:
+  - *In-House Frontend Observability & Telemetry Pipeline* (Browser → Faro SDK → Alloy → OTel → Logstash → OpenSearch)
+  - *Automated API Gateway Exposure & GitOps Workflow* (Terraform, Automated PRs & Microsoft Teams review)
+  - *Configurable Endpoint-Level Rate Limiting & Abuse Prevention* (Minute/Hour Policies & HTTP 429 enforcement)
+  - *MindMend* (WebRTC Telehealth & Real-Time Wellness Platform)
+  - *Smart Energy 3.0* (IoT & OpenCV Dynamic Facility Load Optimizer — Patent IN202511042404)
+  - *Enterprise Auth & RBAC Microservice Engine*
+- **Patents & Credentials**: Patent Application `IN202511042404`, Microsoft Azure Certifications, Xebia MERN & QA, and 450+ LeetCode problem-solving milestone.
+- **Academic Foundation**: B.Tech in Computer Engineering from Thapar Institute of Engineering and Technology (2022–2026) with an **8.80 Final CGPA** and a perfect **10.00 SGPA in the 8th Semester** (9.38 SGPA in the 7th Semester).
 
 ---
 
@@ -24,11 +32,12 @@ A world-class personal developer portfolio showcasing **Rachit Bansal's** career
 
 | Domain | Technologies |
 | :--- | :--- |
-| **Frontend Core** | React 19, JavaScript (ES6+), Vite 6 |
-| **Styling & Design System** | Tailwind CSS 3.4, Custom Glassmorphism, Micro Grids |
-| **Animations & Interactions** | Framer Motion 12, Canvas Confetti |
-| **Icons & Typography** | Lucide React, React Icons, Inter, JetBrains Mono |
-| **SEO & Standards** | JSON-LD Schema.org Person & WebSite metadata, OpenGraph, WCAG A11y |
+| **Cloud & Infrastructure** | AWS (API Gateway, ACM, Load Balancers, Cognito, Aurora and RDS, MSK), Terraform (IAC), Kubernetes, Helm, Docker, Jenkins |
+| **Backend & Systems** | Node.js, Express, OpenResty, NGINX, Redis, WebSockets, Socket.IO, WebRTC |
+| **Observability & Telemetry** | Faro SDK, Alloy, OpenTelemetry Collector, Logstash, Filebeat, OpenSearch, Prometheus |
+| **Databases & Storage** | Redis, MongoDB, Amazon Aurora & RDS (MySQL), Amazon DynamoDB, Amazon S3 |
+| **Frontend Core** | React 19, JavaScript (ES6+), Tailwind CSS 3.4, Vite 6, Framer Motion 12 |
+| **Languages & CS** | C++ (450+ DSA LeetCode Solved), Python, Linux Shell Scripting |
 
 ---
 
