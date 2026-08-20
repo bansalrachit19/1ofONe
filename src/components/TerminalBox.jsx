@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Terminal, Send, Check, CornerDownLeft } from "lucide-react";
+import { Terminal, CornerDownLeft } from "lucide-react";
 import { useToast } from "./Toast";
 import confetti from "canvas-confetti";
 
 export default function TerminalBox() {
   const [input, setInput] = useState("");
   const [history, setHistory] = useState([
-    { type: "system", text: "Rachit Bansal Interactive Shell v2.4 (x86_64-linux-gnu)" },
+    { type: "system", text: "Rachit Bansal Interactive Shell v2.5 (x86_64-linux-gnu)" },
     { type: "system", text: "Type 'help' to inspect available system commands or 'experience' to view career progression." }
   ]);
   const terminalEndRef = useRef(null);
@@ -33,7 +33,7 @@ export default function TerminalBox() {
   • skills      - Core tech ecosystem & production stack
   • projects    - Top architectural case studies & systems
   • patent      - Patent details (IN202511042404)
-  • academics   - B.E. Computer Engineering (8.69 CGPA)
+  • academics   - B.Tech Computer Engineering (8.80 CGPA, 10.00 Sem 8 SGPA)
   • resume      - Open official resume in new tab
   • contact     - Email, phone, LinkedIn & GitHub details
   • copy-email  - Copy bansalrachit311@gmail.com to clipboard
@@ -44,39 +44,43 @@ export default function TerminalBox() {
       case "about":
         newHistory.push({
           type: "output",
-          text: "Rachit Bansal — Associate Software Engineer at Birla Pivot (Aditya Birla Group).\nSpecializing in backend engineering, AWS infrastructure (Terraform), distributed observability (OpenSearch, Prometheus, Thanos), Kafka event streaming, and resilient API architecture."
+          text: "Rachit Bansal — Associate Software Engineer at Birla Pivot (Aditya Birla Group).\nSpecializing in backend platform engineering, AWS infrastructure (Terraform), Kubernetes & Helm, API Gateway automation, custom endpoint rate limiting, and in-house frontend observability (Faro SDK, Alloy, OpenTelemetry, OpenSearch)."
         });
         break;
 
       case "experience":
         newHistory.push({
           type: "output",
-          text: `[1] Birla Pivot (Aditya Birla Group) — Associate Software Engineer (Present)
-    • Scaling platform backend services, rate limiting (OpenResty), and distributed observability.
-[2] Birla Pivot (Aditya Birla Group) — Software Engineering Intern (6 Months, Bangalore)
-    • AWS Terraform IAC, Jenkins CI/CD, OpenSearch/Logstash/Filebeat logging pipelines.`
+          text: `[1] Birla Pivot (Aditya Birla Group) — Associate Software Engineer (2026 – Present, Full-Time)
+    • Configurable endpoint-level rate limits (minute/hour policies, HTTP 429 enforcement).
+    • Automated API Gateway exposure pipeline (Terraform, automated PRs, MS Teams review).
+    • In-house browser telemetry pipeline (Faro SDK → Alloy → OTel → Logstash → OpenSearch).
+    • Kubernetes & Helm microservice deployments, Prometheus metrics, and operational automation.
+[2] Birla Pivot (Aditya Birla Group) — Software Engineering Intern (2026, 6 Months, Bangalore)
+    • AWS Terraform IAC across core cloud services, Jenkins & Bitbucket CI/CD, and Filebeat/Logstash/OpenSearch logging.`
         });
         break;
 
       case "skills":
         newHistory.push({
           type: "output",
-          text: `Cloud/DevOps : AWS (IAM, KMS, ACM, SQS, S3, ECR), Terraform, Docker, Jenkins
-Backend      : Node.js, Express.js, OpenResty, REST APIs, JWT, Rate Limiting
-Observability: OpenSearch, Logstash, Filebeat, Prometheus, Thanos, Kafka / MSK
-Databases    : MongoDB, MySQL, DynamoDB, Redis, S3 Object Store
-Languages    : C++ (DSA 450+ LeetCode), JavaScript, Python`
+          text: `Cloud/DevOps : AWS (API Gateway, ACM, Load Balancers, Cognito, Aurora and RDS, MSK), Terraform, Kubernetes, Helm, Docker, Jenkins
+Backend      : Kubernetes Microservices, Endpoint Rate Limiting (Minute/Hour), API Gateway Automation, OpenResty, JWT, Node.js
+Observability: Faro SDK, Alloy, OpenTelemetry Collector, Logstash, OpenSearch, Prometheus, Kafka / MSK
+Databases    : Redis, MongoDB, Amazon Aurora & RDS (MySQL), DynamoDB, S3
+Languages    : C++ (DSA 450+ LeetCode Solved), JavaScript, Python`
         });
         break;
 
       case "projects":
         newHistory.push({
           type: "output",
-          text: `• Observability & Cloud Platform — Enterprise telemetry & Terraform AWS IAC
-• MindMend                       — WebRTC Telehealth & Real-Time Wellness Platform
-• StudyNotion                    — EdTech Marketplace with Razorpay & Cloudinary
-• Smart Energy 3.0 (Patent)      — IoT & OpenCV Dynamic Building Load Optimizer
-• Enterprise Auth & RBAC         — Stateless Cryptographic Authorization Microservice`
+          text: `• In-House Frontend Observability — Faro SDK → Alloy → OTel → Logstash → OpenSearch Web Vitals & Error Ingestion
+• API Gateway Exposure Automation — Declarative Terraform, Automated PRs & MS Teams Review Workflow
+• Configurable API Rate Limiting   — Fine-Grained Endpoint Minute/Hour Policies & HTTP 429 Gateway Shield
+• MindMend                         — Full-Stack WebRTC Telehealth & Real-Time Consultation Platform
+• Smart Energy 3.0 (Patent)        — IoT Relays & OpenCV Computer Vision Dynamic Facility Load Optimizer
+• Enterprise Auth & RBAC           — Cryptographic JWT Microservice Engine with Salted Bcrypt & Role Trees`
         });
         break;
 
@@ -85,7 +89,7 @@ Languages    : C++ (DSA 450+ LeetCode), JavaScript, Python`
           type: "output",
           text: `Patent Application: IN202511042404 (Awaiting Examination)
 Title: Automated Dynamic Energy Calculation & Control System for Multi-Zone Facilities
-Role: Co-Inventor
+Role: Co-Inventor (Indian Patent Office)
 Domain: OpenCV Occupancy Tracking, Dynamic Thermal Modeling, IoT Relays.`
         });
         break;
@@ -93,8 +97,9 @@ Domain: OpenCV Occupancy Tracking, Dynamic Thermal Modeling, IoT Relays.`
       case "academics":
         newHistory.push({
           type: "output",
-          text: `Degree: B.E. Computer Engineering, Thapar Institute of Engineering & Technology
-CGPA: 8.69 / 10.0 (Sem 1: 8.13 | Sem 2: 8.21 | Sem 3: 8.80 | Sem 4: 8.64 | Sem 5: 9.26 | Sem 6: 9.08)`
+          text: `Degree: B.Tech in Computer Engineering, Thapar Institute of Engineering and Technology (2022–2026)
+Final CGPA: 8.80 / 10.0
+Highlights: 8th Semester SGPA: 10.00 | 7th Semester SGPA: 9.38 (CGPA: 8.78)`
         });
         break;
 

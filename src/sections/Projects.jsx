@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Code2, Sparkles, Filter, Layers, Github } from "lucide-react";
+import { Code2, Sparkles, Github } from "lucide-react";
 import { projectsData } from "../data/projectsData";
 import ProjectCard from "../components/ProjectCard";
 
@@ -9,9 +9,10 @@ export default function Projects() {
 
   const categories = [
     { id: "all", label: "All Engineering Projects" },
-    { id: "Distributed Systems & Cloud", label: "Distributed Systems & Cloud" },
+    { id: "Observability & Telemetry", label: "Observability & Telemetry" },
+    { id: "Cloud & Automation", label: "Cloud & Automation" },
+    { id: "Backend & Systems", label: "Backend & Systems" },
     { id: "Full Stack & WebRTC", label: "Full Stack & WebRTC" },
-    { id: "Full Stack & Payments", label: "EdTech & Payments" },
     { id: "IoT & Systems", label: "IoT & Patent Systems" },
     { id: "Backend & Security", label: "Backend & Security" },
   ];
@@ -38,7 +39,7 @@ export default function Projects() {
           </span>
         </h2>
         <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-          Deep technical case studies covering distributed telemetry architectures, real-time WebRTC communications, payment webhooks, patent-filed IoT load optimizers, and cryptographic authentication engines.
+          Technical case studies covering in-house frontend observability pipelines, automated API Gateway GitOps workflows, configurable endpoint-level rate limiting, real-time WebRTC communications, patent-filed IoT load optimizers, and cryptographic authentication engines.
         </p>
       </div>
 

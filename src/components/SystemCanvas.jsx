@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Activity, Server, Database, Cloud, Radio, ShieldCheck, Cpu } from "lucide-react";
+import { Activity, Server, Database, Cloud, Radio, ShieldCheck } from "lucide-react";
 
 export default function SystemCanvas() {
   const [activeNode, setActiveNode] = useState(null);
@@ -27,22 +27,20 @@ export default function SystemCanvas() {
     {
       id: "gateway",
       name: "OpenResty API Gateway",
-      category: "Ingress & Routing",
+      category: "Ingress & Traffic Control",
       icon: ShieldCheck,
       color: "#38bdf8",
-      pos: "top-left",
-      stats: "Dynamic Rate Limiting • JWT Interception",
-      details: "High-throughput ingress handling SSL termination, CORS, reverse proxying and token validation before microservice delegation."
+      stats: "Configurable Rate Limiting • HTTP 429",
+      details: "High-throughput ingress handling endpoint-specific minute/hour rate limits, SSL termination, and reverse proxy routing."
     },
     {
       id: "services",
-      name: "Node.js Core Microservices",
-      category: "Backend Engine",
+      name: "Kubernetes Microservices",
+      category: "Service Orchestration",
       icon: Server,
       color: "#10b981",
-      pos: "center",
-      stats: "REST APIs • Async Workflows",
-      details: "Stateless microservice clusters handling core business logic, session validation, and service-to-service orchestration."
+      stats: "K8s • Helm Charts • Containerized Deployments",
+      details: "Containerized microservice clusters orchestrated via Kubernetes and Helm charts for scalable, decoupled deployments."
     },
     {
       id: "kafka",
@@ -50,29 +48,35 @@ export default function SystemCanvas() {
       category: "Event Streaming",
       icon: Radio,
       color: "#818cf8",
-      pos: "top-right",
       stats: "Decoupled Event Streaming",
-      details: "High-volume distributed event bus decoupling user activities, audit logs, and asynchronous worker tasks."
+      details: "High-volume distributed event streaming decoupling user events, audit telemetry, and asynchronous background pipelines."
     },
     {
       id: "datastores",
-      name: "MongoDB & DynamoDB",
-      category: "Storage Layer",
+      name: "Redis, MongoDB & Aurora / RDS",
+      category: "Storage & Caching",
       icon: Database,
       color: "#fbbf24",
-      pos: "bottom-left",
-      stats: "Aggregated Indexes & ACID Stores",
-      details: "Document models for user profiles and transactions alongside ultra-fast key-value state for caching."
+      stats: "Redis Caching • ACID Relational & Document Stores",
+      details: "Sub-millisecond Redis caching, MongoDB document aggregation, and managed Aurora / RDS MySQL schemas."
+    },
+    {
+      id: "cloud",
+      name: "AWS & Terraform IAC",
+      category: "Cloud Infrastructure",
+      icon: Cloud,
+      color: "#a78bfa",
+      stats: "API Gateway, ACM, Load Balancers, Cognito, Aurora/RDS, MSK",
+      details: "Declarative infrastructure automation using Terraform across AWS networking, security groups, IAM, and managed services."
     },
     {
       id: "observability",
-      name: "OpenSearch + Prometheus",
+      name: "In-House Telemetry & OpenSearch",
       category: "Observability Pipeline",
       icon: Activity,
       color: "#f43f5e",
-      pos: "bottom-right",
-      stats: "Filebeat • Thanos • Dashboards",
-      details: "Full-stack distributed observability aggregating multi-tier logs and Prometheus metric federation with sub-second queries."
+      stats: "Faro SDK • Alloy • OTel • Logstash • OpenSearch",
+      details: "In-house browser telemetry pipeline capturing Web Vitals, JavaScript errors, and server logs centralized in OpenSearch Dashboards."
     }
   ];
 
@@ -118,7 +122,7 @@ export default function SystemCanvas() {
             </div>
             <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-accent-cyan/20 text-accent-cyan">OpenResty</span>
           </div>
-          <p className="text-xs text-slate-400 leading-relaxed">Reverse Proxy, Rate Limiting & Auth Header Validation</p>
+          <p className="text-xs text-slate-400 leading-relaxed">Configurable Endpoint Rate Limiting (Minute/Hour) & HTTP 429</p>
         </div>
 
         {/* Core Services (Center) */}
@@ -134,11 +138,11 @@ export default function SystemCanvas() {
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <Server className="w-5 h-5 text-accent-emerald" />
-              <span className="font-semibold text-sm text-slate-100">Core Microservices</span>
+              <span className="font-semibold text-sm text-slate-100">Microservices Orchestration</span>
             </div>
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-accent-emerald/20 text-accent-emerald">Node / Express</span>
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-accent-emerald/20 text-accent-emerald">Kubernetes / Helm</span>
           </div>
-          <p className="text-xs text-slate-400 leading-relaxed">Stateless REST APIs, Microservice Routing & Async Workflows</p>
+          <p className="text-xs text-slate-400 leading-relaxed">Containerized Deployments, Helm Releases & Scalable Workflows</p>
         </div>
 
         {/* Message Bus */}
@@ -174,30 +178,36 @@ export default function SystemCanvas() {
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <Database className="w-5 h-5 text-accent-amber" />
-              <span className="font-semibold text-sm text-slate-100">Persistence Layer</span>
+              <span className="font-semibold text-sm text-slate-100">Databases & Caching</span>
             </div>
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-accent-amber/20 text-accent-amber">MongoDB & DynamoDB</span>
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-accent-amber/20 text-accent-amber">Redis • MongoDB • Aurora</span>
           </div>
-          <p className="text-xs text-slate-400 leading-relaxed">ACID Transactions, Indexed Aggregations & Key-Value Caching</p>
+          <p className="text-xs text-slate-400 leading-relaxed">Redis In-Memory Caching, Document Aggregations & Aurora MySQL</p>
         </div>
 
         {/* Cloud IAC */}
         <div 
-          className="p-4 rounded-xl border bg-surface-glass border-white/10 hover:border-accent-violet/40 transition-all cursor-pointer"
+          onMouseEnter={() => setActiveNode(nodes[4])}
+          onMouseLeave={() => setActiveNode(null)}
+          className={`p-4 rounded-xl border transition-all cursor-pointer ${
+            activeNode?.id === "cloud"
+              ? "bg-accent-violet/10 border-accent-violet"
+              : "bg-surface-glass border-white/10 hover:border-accent-violet/40"
+          }`}
         >
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <Cloud className="w-5 h-5 text-accent-violet" />
-              <span className="font-semibold text-sm text-slate-100">Cloud Infrastructure</span>
+              <span className="font-semibold text-sm text-slate-100">AWS Infrastructure</span>
             </div>
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-accent-violet/20 text-accent-violet">AWS + Terraform</span>
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-accent-violet/20 text-accent-violet">Terraform IAC</span>
           </div>
-          <p className="text-xs text-slate-400 leading-relaxed">IAM, KMS, SQS, S3, ECR, CloudFront & Automated Provisioning</p>
+          <p className="text-xs text-slate-400 leading-relaxed">API Gateway, ACM, Load Balancers, Cognito, Aurora/RDS, MSK</p>
         </div>
 
         {/* Observability Suite */}
         <div 
-          onMouseEnter={() => setActiveNode(nodes[4])}
+          onMouseEnter={() => setActiveNode(nodes[5])}
           onMouseLeave={() => setActiveNode(null)}
           className={`p-4 rounded-xl border transition-all cursor-pointer ${
             activeNode?.id === "observability"
@@ -210,9 +220,9 @@ export default function SystemCanvas() {
               <Activity className="w-5 h-5 text-accent-rose" />
               <span className="font-semibold text-sm text-slate-100">Observability Suite</span>
             </div>
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-accent-rose/20 text-accent-rose">OpenSearch + Thanos</span>
+            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-accent-rose/20 text-accent-rose">Faro → OTel → OpenSearch</span>
           </div>
-          <p className="text-xs text-slate-400 leading-relaxed">Unified Distributed Logs, Prometheus Metrics & Live Dashboards</p>
+          <p className="text-xs text-slate-400 leading-relaxed">In-House Browser Telemetry, Web Vitals, Prometheus & Dashboards</p>
         </div>
       </div>
 

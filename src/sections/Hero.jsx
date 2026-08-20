@@ -7,11 +7,8 @@ import {
   Linkedin, 
   Copy, 
   Sparkles, 
-  Layers, 
-  ShieldCheck, 
-  Activity, 
   Terminal as TerminalIcon,
-  CheckCircle2
+  GraduationCap
 } from "lucide-react";
 import SystemCanvas from "../components/SystemCanvas";
 import { useToast } from "../components/Toast";
@@ -29,9 +26,9 @@ export default function Hero({ onOpenCommandPalette }) {
 
   const statHighlights = [
     { label: "Current Role", value: "Associate SE @ Birla Pivot", sub: "Aditya Birla Group" },
-    { label: "Cloud & IAC", value: "AWS & Terraform", sub: "Production Infrastructure" },
-    { label: "Observability", value: "OpenSearch & Thanos", sub: "Telemetry Pipelines" },
-    { label: "Algorithms", value: "450+ LeetCode Solved", sub: "Consistent Problem Solver" }
+    { label: "Academics", value: "8.80 CGPA (Sem 8: 10.00)", sub: "Thapar Institute (2022–2026)" },
+    { label: "Cloud & Platform", value: "AWS & Kubernetes", sub: "Terraform, Helm & Gateways" },
+    { label: "Observability", value: "Faro, OTel & OpenSearch", sub: "In-House Telemetry Pipelines" }
   ];
 
   return (
@@ -39,17 +36,22 @@ export default function Hero({ onOpenCommandPalette }) {
       {/* Background Radial Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-cyan/10 rounded-full blur-[140px] pointer-events-none" />
 
-      {/* Top Banner / Status Pill */}
+      {/* Top Banner / Status Pill & Subtle Photo */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="flex flex-wrap items-center justify-center gap-3 mb-6"
       >
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-slate-300 shadow-inner-light backdrop-blur-md">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-slate-300 shadow-inner-light backdrop-blur-md">
+          <img 
+            src={rachitPhoto} 
+            alt="Rachit Bansal" 
+            className="w-5 h-5 rounded-full object-cover border border-accent-cyan/40"
+          />
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-emerald opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-emerald"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-emerald"></span>
           </span>
           <span>Birla Pivot (Aditya Birla Group) • Bangalore</span>
         </div>
@@ -57,6 +59,11 @@ export default function Hero({ onOpenCommandPalette }) {
         <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-xs font-mono text-accent-cyan">
           <Sparkles className="w-3.5 h-3.5" />
           <span>Intern → Full-Time Associate Software Engineer</span>
+        </div>
+
+        <div className="hidden md:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-emerald/10 border border-accent-emerald/20 text-xs font-mono text-accent-emerald">
+          <GraduationCap className="w-3.5 h-3.5" />
+          <span>Thapar B.Tech (8.80 CGPA • 10.00 Sem 8)</span>
         </div>
       </motion.div>
 
@@ -80,7 +87,7 @@ export default function Hero({ onOpenCommandPalette }) {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-6 text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed font-sans"
         >
-          I am <span className="text-slate-100 font-semibold">Rachit Bansal</span>, an Associate Software Engineer at <span className="text-slate-100 font-semibold">Birla Pivot (Aditya Birla Group)</span>. I specialize in designing scalable backend microservices, declarative AWS infrastructure with Terraform, distributed observability pipelines (OpenSearch, Prometheus, Thanos), and event streaming architectures.
+          I am <span className="text-slate-100 font-semibold">Rachit Bansal</span>, an Associate Software Engineer at <span className="text-slate-100 font-semibold">Birla Pivot (Aditya Birla Group)</span>. I specialize in backend platform engineering, declarative AWS infrastructure with Terraform, Kubernetes & Helm service orchestration, automated API Gateway exposure, configurable endpoint rate limiting, and in-house frontend observability pipelines.
         </motion.p>
 
         {/* Action CTAs */}

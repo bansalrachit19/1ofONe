@@ -6,10 +6,8 @@ import {
   GraduationCap, 
   Trophy, 
   ExternalLink, 
-  ShieldCheck, 
-  FileCheck2, 
-  Flame,
-  CheckCircle2
+  CheckCircle2,
+  Sparkles
 } from "lucide-react";
 import { patentData, certificationsData, academicData, leadershipData } from "../data/credentialsData";
 
@@ -32,7 +30,7 @@ export default function Credentials() {
           </span>
         </h2>
         <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-          Patent filing for smart building energy systems, Microsoft cloud certifications, academic foundation at Thapar Institute (8.69 CGPA), and proven leadership.
+          Patent filing for smart building energy systems, Microsoft cloud certifications, academic foundation at Thapar Institute of Engineering and Technology (8.80 CGPA • 10.00 Sem 8 SGPA), and proven leadership.
         </p>
       </div>
 
@@ -130,13 +128,13 @@ export default function Credentials() {
             <h3 className="text-lg font-bold text-slate-100 mt-1">{academicData.degree}</h3>
             <p className="text-xs text-accent-cyan font-mono mt-1">{academicData.institution}</p>
             <p className="text-xs text-slate-300 mt-4 leading-relaxed font-sans">
-              Rigorous curriculum spanning Operating Systems, Computer Networks, Database Management Systems, Distributed Computing, and Data Structures & Algorithms.
+              Rigorous curriculum spanning Operating Systems, Computer Networks, Database Management Systems, Distributed Computing, Cloud Architecture, and Data Structures & Algorithms.
             </p>
           </div>
 
           <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between font-mono">
-            <span className="text-xs text-slate-400">Cumulative CGPA:</span>
-            <span className="text-lg font-bold text-accent-emerald">{academicData.cgpa}</span>
+            <span className="text-xs text-slate-400">Final Cumulative CGPA:</span>
+            <span className="text-xl font-bold text-accent-emerald">{academicData.finalCgpa}</span>
           </div>
         </div>
 
@@ -147,26 +145,39 @@ export default function Credentials() {
               <h4 className="text-sm font-bold text-slate-100 font-sans flex items-center gap-2">
                 <BookOpen className="w-4 h-4 text-accent-cyan" /> Academic Consistency & Upward Progression
               </h4>
-              <span className="text-xs font-mono text-accent-emerald">Consistent &gt; 8.6+ Standard</span>
+              <span className="text-xs font-mono text-accent-emerald flex items-center gap-1">
+                <Sparkles className="w-3 h-3" /> Sem 8: 10.00 SGPA
+              </span>
             </div>
             <p className="text-xs text-slate-400 mb-6 font-sans">
-              Demonstrated consistent academic climb, achieving a peak 9.26 SGPA in upper-division Computer Engineering coursework.
+              Demonstrated consistent academic climb culminating in a perfect 10.00 SGPA in the 8th Semester and a 9.38 SGPA in the 7th Semester.
             </p>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
               {academicData.semesters.map((s, i) => (
-                <div key={i} className="p-3 rounded-xl bg-obsidian-950/70 border border-white/5 text-center">
-                  <span className="text-xs font-mono text-slate-400 block mb-1">{s.sem}</span>
-                  <span className="text-sm font-bold text-accent-cyan block">{s.sgpa}</span>
-                  <span className="text-[10px] font-mono text-slate-400 block mt-0.5">CGPA: {s.cgpa}</span>
+                <div 
+                  key={i} 
+                  className={`p-2.5 rounded-xl border text-center transition-all ${
+                    s.sgpa === 10.0
+                      ? "bg-accent-emerald/15 border-accent-emerald/40 shadow-glow-emerald"
+                      : s.sgpa >= 9.0
+                      ? "bg-accent-cyan/10 border-accent-cyan/30"
+                      : "bg-obsidian-950/70 border-white/5"
+                  }`}
+                >
+                  <span className="text-[11px] font-mono text-slate-400 block mb-0.5">{s.sem}</span>
+                  <span className={`text-xs sm:text-sm font-bold block ${s.sgpa === 10.0 ? "text-accent-emerald" : "text-accent-cyan"}`}>
+                    {s.sgpa.toFixed(2)}
+                  </span>
+                  <span className="text-[9px] font-mono text-slate-400 block mt-0.5">CG: {s.cgpa.toFixed(2)}</span>
                 </div>
               ))}
             </div>
           </div>
 
           <div className="mt-6 pt-3 border-t border-white/5 text-[11px] font-mono text-slate-400 flex items-center justify-between">
-            <span>Thapar Institute of Engineering & Technology</span>
-            <span className="text-slate-300 font-semibold">Graduating Year: 2025</span>
+            <span>Thapar Institute of Engineering and Technology</span>
+            <span className="text-slate-300 font-semibold">Graduation Year: {academicData.graduationYear}</span>
           </div>
         </div>
       </div>

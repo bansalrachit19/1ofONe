@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Github, 
-  ExternalLink, 
   ChevronDown, 
   ChevronUp, 
-  Layers, 
-  ShieldCheck, 
   Cpu, 
-  Sparkles,
-  ArrowUpRight
+  ArrowUpRight,
+  ArrowRight,
+  Workflow
 } from "lucide-react";
 
 export default function ProjectCard({ project, index }) {
@@ -69,19 +67,38 @@ export default function ProjectCard({ project, index }) {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.25 }}
-              className="space-y-2 mb-5 pt-3 border-t border-white/10"
+              className="space-y-4 mb-5 pt-3 border-t border-white/10"
             >
-              <h4 className="text-xs font-semibold text-accent-cyan uppercase tracking-wider font-mono flex items-center gap-1.5">
-                <Cpu className="w-3.5 h-3.5" /> Architecture Highlights & Engineering Decisions
-              </h4>
-              <ul className="space-y-2 text-xs text-slate-300 font-sans">
-                {project.architecturePoints.map((point, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <span className="text-accent-cyan mt-0.5">•</span>
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
+              {/* Optional Pipeline Flow */}
+              {project.pipelineFlow && (
+                <div className="p-3.5 rounded-xl bg-obsidian-950/80 border border-accent-cyan/20">
+                  <div className="flex items-center gap-1.5 text-xs font-mono text-accent-cyan font-semibold mb-3">
+                    <Workflow className="w-3.5 h-3.5" /> Pipeline Architecture Flow
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 text-xs font-mono">
+                    {project.pipelineFlow.map((step, idx) => (
+                      <div key={idx} className="p-2 rounded-lg bg-white/5 border border-white/5 flex flex-col justify-between">
+                        <span className="text-accent-cyan font-semibold text-[11px]">{step.step}</span>
+                        <span className="text-[10px] text-slate-400 mt-1">{step.desc}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div>
+                <h4 className="text-xs font-semibold text-accent-cyan uppercase tracking-wider font-mono flex items-center gap-1.5 mb-2">
+                  <Cpu className="w-3.5 h-3.5" /> Architecture Highlights & Engineering Decisions
+                </h4>
+                <ul className="space-y-2 text-xs text-slate-300 font-sans">
+                  {project.architecturePoints.map((point, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-accent-cyan mt-0.5">•</span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -135,7 +152,7 @@ export default function ProjectCard({ project, index }) {
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent-cyan/15 hover:bg-accent-cyan/25 border border-accent-cyan/40 text-xs font-medium text-accent-cyan transition-all"
               >
-                <ArrowUpRight className="w-3.5 h-3.5" /> Live
+                <ArrowUpRight className="w-3.5 h-3.5" /> View
               </a>
             )}
           </div>
