@@ -10,6 +10,7 @@ import {
   Sparkles
 } from "lucide-react";
 import { patentData, certificationsData, academicData, leadershipData } from "../data/credentialsData";
+import AcademicChart from "../components/AcademicChart";
 
 export default function Credentials() {
   return (
@@ -138,7 +139,7 @@ export default function Credentials() {
           </div>
         </div>
 
-        {/* Semester-by-Semester Progression */}
+        {/* Semester-by-Semester Progression + Interactive Graph */}
         <div className="lg:col-span-2 p-6 rounded-2xl glass-panel border border-white/10 bg-obsidian-900/70 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-4">
@@ -153,6 +154,7 @@ export default function Credentials() {
               Demonstrated consistent academic climb culminating in a perfect 10.00 SGPA in the 8th Semester and a 9.38 SGPA in the 7th Semester.
             </p>
 
+            {/* Semester Cards Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
               {academicData.semesters.map((s, i) => (
                 <div 
@@ -173,6 +175,9 @@ export default function Credentials() {
                 </div>
               ))}
             </div>
+
+            {/* Interactive SVG Performance Trajectory Graph */}
+            <AcademicChart />
           </div>
 
           <div className="mt-6 pt-3 border-t border-white/5 text-[11px] font-mono text-slate-400 flex items-center justify-between">
